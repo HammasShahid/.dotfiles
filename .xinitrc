@@ -31,7 +31,11 @@ wired &
 /usr/lib/kdeconnectd &
 
 # Status Bar
-slstatus&
+slstatus &
+
+# Systray Apps
+nm-applet &
+kdeconnect-indicator &
 
 # Loop
 while true; do
