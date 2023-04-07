@@ -25,7 +25,7 @@ nitrogen --restore &
 picom -f &
 
 # Notification Daemon
-wired &
+dunst &
 
 # KDEConnect Daemon
 /usr/lib/kdeconnectd &
