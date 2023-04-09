@@ -37,6 +37,9 @@ slstatus &
 nm-applet &
 kdeconnect-indicator &
 
+# Hotkey Daemon
+sxhkd &
+
 # Loop
 while true; do
     dwm >/dev/null 2>&1
