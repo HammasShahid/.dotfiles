@@ -8,14 +8,13 @@ env:
 
 window:
   padding:
-    x: 3
-    y: 3
-  
+    x: 2
+    y: 1
   title: Terminal
   decorations: None
-  opacity: 0.95
-  # dynamic_padding: false
-  dynamic_title: false
+  opacity: .93
+  dynamic_padding: true
+  # dynamic_title: false
 
 scrolling:
   history: 3500
@@ -34,7 +33,11 @@ font:
     family: JetBrainsMono Nerd Font
     style: Italic
 
-  size: 10
+  bold_italic:
+    family: JetBrainsMono Nerd Font
+    style: Bold Italic
+
+  size: 9.5
   builtin_box_drawing: true
 
 selection:
