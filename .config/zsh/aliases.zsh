@@ -15,4 +15,4 @@ alias la='ll -a'
 alias tree='ll --tree --level=2'
 
 # Dotfiles 
-alias dotfiles='/usr/bin/git --git-dir=/home/archer/.dotfiles/ --work-tree=/home/archer'
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
