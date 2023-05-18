@@ -12,6 +12,7 @@ for dump in "${ZDOTDIR:-$HOME}/.zcompdump"(N.mh+24); do
 done
 compinit -C
 
+
 # man zshoptions for more options
 setopt AUTO_CD 
 setopt NOMATCH 
@@ -23,6 +24,9 @@ setopt GLOB_DOTS
 
 source $HOME/.config/zsh/exports.zsh
 source $HOME/.config/zsh/aliases.zsh
+
+# node version manager (nvm)
+source /usr/share/nvm/init-nvm.sh
 
 plug "zap-zsh/zap-prompt"
 plug "zsh-users/zsh-autosuggestions"
