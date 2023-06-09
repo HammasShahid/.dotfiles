@@ -1,0 +1,90 @@
+#
+# wm independent hotkeys
+#
+
+super + shift + e
+	rofi -show emoji
+
+super + shift + n
+	rofi-nerdfonts
+
+super + shift + c
+	rofi -show calc
+
+# printscreen
+@Print
+	screenshot 
+
+shift + @Print
+	screenshot path
+
+super + alt + s
+	screenshot select
+
+super + alt + shift + s
+	screenshot select-path
+
+# media keys
+XF86AudioPrev
+	playerctl previous
+
+XF86AudioNext
+	playerctl next
+
+XF86AudioPlay
+	playerctl play-pause
+
+# volume keys
+{ XF86AudioRaiseVolume, Pause }
+	changevolume up
+
+{ XF86AudioLowerVolume, Scroll_Lock }
+	changevolume down
+
+{ XF86AudioMute, super + F5 }
+	changevolume mute
+
+# lockscreen
+super + x
+	slock
+
+super + shift + x
+	powermenu
+
+# program launcher
+super + r
+	rofi -show drun
+
+super + shift + r
+	rofi -show drun
+
+# Reload sxhkd
+super + shift + Escape
+	pkill -USR1 -x sxhkd
+
+# notifications
+super + alt + n
+  dunstctl close
+
+super + alt + shift + n
+  dunstctl close-all
+
+super + alt + period
+  dunstctl context
+
+super + n
+  dunstctl history-pop
+
+super + Return
+	$TERMINAL
+
+# browser
+super + w
+	$BROWSER
+
+# Explorer
+super + e
+	$EXPLORER
+
+Menu
+	xte 'mouseclick 3'
