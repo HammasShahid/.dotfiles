@@ -39,7 +39,7 @@ prompt {
 entry {
   background-color: transparent;
   font: "Cantarell 9.5";
-  placeholder: "Search Applications";
+  placeholder: "Search Running Windows";
   placeholder-color: @placeholder;
   text-color: @foreground;
 }
