@@ -13,16 +13,16 @@ super + shift + c
 
 # printscreen
 @Print
-	screenshot 
+	$HOME/.local/bin/screenshot 
 
 shift + @Print
-	screenshot path
+	$HOME/.local/bin/screenshot path
 
 super + alt + s
-	screenshot select
+	$HOME/.local/bin/screenshot select
 
 super + alt + shift + s
-	screenshot select-path
+	$HOME/.local/bin/screenshot select-path
 
 # media keys
 XF86AudioPrev
@@ -36,27 +36,27 @@ XF86AudioPlay
 
 # volume keys
 { XF86AudioRaiseVolume, Pause }
-	changevolume up
+	$HOME/.local/bin/changevolume up
 
 { XF86AudioLowerVolume, Scroll_Lock }
-	changevolume down
+	$HOME/.local/bin/changevolume down
 
 { XF86AudioMute, super + F5 }
-	changevolume mute
+	$HOME/.local/bin/changevolume mute
 
 # lockscreen
 super + x
 	slock
 
 super + shift + x
-	powermenu
+	$HOME/.local/bin/powermenu
 
 # program launcher
 super + r
 	rofi -show drun
 
 super + shift + r
-	rofi -show drun
+	rofi -show window
 
 # Reload sxhkd
 super + shift + Escape
