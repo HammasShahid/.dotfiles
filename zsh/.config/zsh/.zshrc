@@ -24,6 +24,7 @@ setopt GLOB_DOTS
 
 source $HOME/.config/zsh/exports.zsh
 source $HOME/.config/zsh/aliases.zsh
+source $HOME/.config/zsh/keybindings.zsh
 
 # node version manager (nvm)
 source /usr/share/nvm/init-nvm.sh
