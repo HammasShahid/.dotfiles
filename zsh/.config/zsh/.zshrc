@@ -29,6 +29,11 @@ source $HOME/.config/zsh/keybindings.zsh
 # node version manager (nvm)
 source /usr/share/nvm/init-nvm.sh
 
+# pywal
+(cat ~/.cache/wal/sequences &)     # Import colorscheme from 'wal' asynchronously
+source ~/.cache/wal/colors-tty.sh  # To add support for TTYs (Optional) 
+
+
 plug "zap-zsh/zap-prompt"
 plug "zsh-users/zsh-autosuggestions"
 plug "MichaelAquilina/zsh-auto-notify"
