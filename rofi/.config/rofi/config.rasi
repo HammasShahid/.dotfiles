@@ -1,5 +1,5 @@
 configuration {
-  modi: "drun,window";
+  modi: "drun,window,emoji,calc";
   disable-history: false;
   display-drun: "";
   display-window: "";
