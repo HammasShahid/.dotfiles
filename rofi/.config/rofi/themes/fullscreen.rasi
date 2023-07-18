@@ -5,6 +5,7 @@
   inputbar:    rgba(69, 71, 90, 0.40);
   placeholder: #bac2de;
   selected:    rgba(88, 91, 112, 0.25);
+  red:         #ff6961;
 }
 
 window {
