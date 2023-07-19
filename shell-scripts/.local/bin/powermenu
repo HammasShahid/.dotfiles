@@ -1,0 +1,21 @@
+#! /bin/sh
+
+power="💡   Power Off"
+restart="🔃   Restart"
+suspend="🌙   Suspend"
+hibernate="❄️   Hibernate"
+logout="↪️   Log Out"
+lock="🔒   Lock"
+
+# chosen=$(printf "  Power Off\n  Restart\n  Suspend\n  Hibernate\n  Log Out\n  Lock" | rofi -dmenu -i -theme-str '@import "power.rasi"')
+chosen=$(printf "$power\n$restart\n$suspend\n$hibernate\n$logout\n$lock" | rofi -dmenu -i)
+
+case "$chosen" in
+	$power) poweroff ;;
+	$restart) reboot ;;
+	$suspend) systemctl suspend-then-hibernate ;;
+  $hibernate) systemctl hibernate ;;
+	$logout) loginctl kill-session self ;;
+	$lock) slock ;;
+	*) exit 1 ;;
+esac

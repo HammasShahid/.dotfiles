@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+output=$HOME/Pictures/Screenshots/
+
+case $1 in 
+  "select") flameshot gui -p "$output"  || exit ;;
+  "select-path") flameshot gui || exit ;;
+  "path") flameshot screen || exit ;;
+  *) flameshot screen -p "$output" || exit ;;
+esac

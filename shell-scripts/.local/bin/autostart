@@ -1,0 +1,38 @@
+#!/bin/sh
+
+resset &
+
+# Wallpaper manager
+# nitrogen --restore &
+
+# restore last used pywal settings
+wal -R &&
+# Update DWM colors from xrdb
+xdotool key super+shift+F5 &
+
+# Sound
+/usr/bin/pipewire &
+/usr/bin/pipewire-pulse &
+/usr/bin/wireplumber &
+
+#compositor
+#picom --config ~/.config/picom/picom.conf &
+picom -f &
+
+# Notification Daemon
+dunst &
+
+# KDEConnect Daemon
+/usr/lib/kdeconnectd &
+
+# Status Bar
+# slstatus &
+dwmblocks &
+
+# Hotkey Daemon
+sxhkd &
+
+# Systray Apps
+nm-applet &
+kdeconnect-indicator &
+

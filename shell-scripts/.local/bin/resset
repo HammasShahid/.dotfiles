@@ -1,0 +1,16 @@
+#!/bin/bash
+
+## Example:
+# run `gtf/cvt <width> <height> <refresh-rate>` and copy everyting after "Modeline"
+# xrandr --newmode "1680x1050-60.00"  146.25  1680 1784 1960 2240  1050 1053 1059 1089 -hsync +vsync &&
+# xrandr --addmode VGA-1 "1680x1050-60.00" &&
+# xrandr --output VGA-1 --mode "1680x1050-60.00" &
+
+mode=$(cvt 1680 1050 60 | sed -n "/Modeline/p" | sed "s/Modeline//") &&
+mode_name=$(echo $mode | cut -d' ' -f1) &&
+display_output_port=$(xrandr | awk 'FNR == 2 {print $1; exit}') &&
+
+xrandr --newmode $mode &&
+xrandr --addmode $display_output_port $mode_name &&
+xrandr --output $display_output_port --mode $mode_name &
+
