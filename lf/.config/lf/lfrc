@@ -1,0 +1,78 @@
+set previewer ~/.config/lf/lf_kitty_preview
+set cleaner ~/.config/lf/lf_kitty_clean
+
+set hidden true
+set ignorecase true
+set icons true
+
+cmd mkdir ${{
+    printf "Directory Name: "
+    read dir_name
+    mkdir $dir_name
+  }}
+
+cmd mkfile ${{
+    printf "Filename: "
+    read ans
+    $EDITOR $ans
+  }}
+
+cmd unarchive ${{
+    case "$f" in 
+      *.zip) unzip "$f" ;;
+      *.rar) unrar x "$f" ;;
+      *.tar.gz) tar -xzvf "$f" ;;
+      *.tar) tar -xvf "$f" ;;
+      *) echo "Format not supported" ;;
+    esac
+  }}
+
+cmd pywal ${{
+    printf "Backend (leave empty for wal, c = colorz, t = colorthief, h = haishoku): "
+    read ans
+    case $ans in
+      "c")
+        backend="colorz" ;;
+      "t")
+        backend="colorthief" ;;
+      "h")
+        backend="haishoku" ;;
+      *)
+        backend="wal" ;;
+    esac
+
+   #if [[ $ans == "c" ]]; then
+   #  backend="colorz"
+   #elif [[ $ans == "t" ]]; then
+   #  backend="colorthief"
+   #elif [[ $ans == "h" ]]; then
+   #  backend="haishoku"
+   #else
+   #  backend="wal"
+   #fi
+    wal -i "$f" --backend "$backend"
+    xdotool key super+shift+F5
+    exit 0
+  }}
+
+# Unset default bindings
+map d
+map n
+
+# Bindings
+map au unarchive
+map bg pywal
+
+map nf mkfile
+map nd mkdir
+map x cut
+#map dd trash
+map dd delete
+
+# Quickly CD into common directories
+map gh cd ~/
+map gd cd ~/Downloads
+map gD cd ~/Documents
+map gc cd ~/.config
+map gb cd ~/.local/bin
+map gs cd ~/.local/share
