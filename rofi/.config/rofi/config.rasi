@@ -11,4 +11,4 @@ configuration {
   window-format: "{t}";
 }
 
-@theme "fullscreen"
+@theme "rounded-blue-dark"
