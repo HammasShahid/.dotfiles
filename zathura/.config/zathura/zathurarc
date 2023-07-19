@@ -1,0 +1,7 @@
+include themes/catppuccin-frappe
+
+set window-title-basename "true"
+set selection-clipboard "clipboard"
+set recolor true
+
+map <C-h> nohlsearch
