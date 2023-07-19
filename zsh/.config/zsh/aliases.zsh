@@ -9,7 +9,8 @@ if ! (( $+commands[exa] )); then
 fi
 
 # Create alias override commands using 'exa'
-alias ls='exa --group-directories-first --icons'
+alias ls='exa'
+alias lx='exa --group-directories-first --icons'
 alias ll='ls -lh --git'
 alias la='ll -a'
 alias tree='ll --tree --level=2'
