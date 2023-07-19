@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+
+# Start some nice programs
+[[ -d /etc/X11/xinit/xinitrc.d ]] && {
+  for file in /etc/X11/xinit/xinitrc.d/?*.sh; do
+    [[ -x $file ]] && . $file
+  done
+  unset file
+}
+
+export EDITOR="nvim"
+export TERMINAL="kitty"
+export BROWSER="firefox"
+export EXPLORER="pcmanfm"
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+export PATH="$PATH:$HOME/.local/bin:$HOME/.local/bin/statusbar"
+
+# Screen Resolution
+# resset &
+
+# Startup Apps
+autostart &
+
+# Loop
+while true; do
+    dwm >/dev/null 2>&1
+done
