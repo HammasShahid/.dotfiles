@@ -1,4 +1,16 @@
-[ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
+source $HOME/.config/zsh/exports.zsh
+source $HOME/.config/zsh/aliases.zsh
+source $HOME/.config/zsh/keybindings.zsh
+
+# ZAP
+ZAP_DIR=$HOME/.local/share/zap
+if [ -f "$ZAP_DIR/zap.zsh" ]
+then
+  source "$ZAP_DIR/zap.zsh"
+else
+  /usr/bin/git clone https://github.com/zap-zsh/zap $ZAP_DIR
+  source "$ZAP_DIR/zap.zsh"
+fi
 
 # completions
 autoload -Uz compinit
@@ -21,10 +33,6 @@ setopt INTERACTIVE_COMMENTS
 setopt APPEND_HISTORY
 setopt EXTENDED_GLOB
 setopt GLOB_DOTS
-
-source $HOME/.config/zsh/exports.zsh
-source $HOME/.config/zsh/aliases.zsh
-source $HOME/.config/zsh/keybindings.zsh
 
 # node version manager (nvm)
 source /usr/share/nvm/init-nvm.sh
