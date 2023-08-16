@@ -41,6 +41,11 @@ source /usr/share/nvm/init-nvm.sh
 (cat ~/.cache/wal/sequences &)     # Import colorscheme from 'wal' asynchronously
 source ~/.cache/wal/colors-tty.sh  # To add support for TTYs (Optional) 
 
+# lfcd  (Change working dir in shell to last dir in lf on exit)
+LFCD="${XDG_CONFIG_HOME:-$HOME/.config}/lf/lfcd.sh"
+if [ -f "$LFCD" ]; then
+   source "$LFCD"
+fi
 
 plug "zap-zsh/zap-prompt"
 plug "zsh-users/zsh-autosuggestions"

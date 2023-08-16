@@ -1,4 +1,4 @@
-# Keybindings
+# zsh specific Keybindings
 bindkey -e
 bindkey '^[[7~' beginning-of-line                               # Home key
 bindkey '^[[H' beginning-of-line                                # Home key
@@ -24,3 +24,6 @@ bindkey '^[[1;5D' backward-word                                 #
 bindkey '^[[1;5C' forward-word                                  #
 bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
 bindkey '^[[Z' undo                                             # Shift+tab undo last action
+
+# non-zsh specific keybindings
+bindkey -s '^o' 'lfcd\n'
