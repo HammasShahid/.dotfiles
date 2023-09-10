@@ -1,24 +1,18 @@
 #!/usr/bin/env bash
 
-# Start some nice programs
-[[ -d /etc/X11/xinit/xinitrc.d ]] && {
-  for file in /etc/X11/xinit/xinitrc.d/?*.sh; do
-    [[ -x $file ]] && . $file
-  done
-  unset file
-}
+# start some nice programs
 
-# Screen Resolution
-resset &
+if [ -d /etc/X11/xinit/xinitrc.d ] ; then
+ for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
+  [ -x "$f" ] && . "$f"
+ done
+ unset f
+fi
 
-# startup apps
-autostart &
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile" ]; then
+  . "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile"
+else
+  . "$HOME/.xprofile" &
+fi
 
-# Loop
-while true; do
-    dwm >/dev/null 2>&1
-done
-
-# Start WM
-# exec qtile start
-exec dwm
+exec ssh-agent dwm
