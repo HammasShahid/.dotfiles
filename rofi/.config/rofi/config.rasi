@@ -12,3 +12,4 @@ configuration {
 }
 
 @theme "rounded-blue-dark"
+@theme "~/.cache/wal/colors-rofi-light"
