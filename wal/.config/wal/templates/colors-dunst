@@ -1,0 +1,15 @@
+[urgency_low]
+    background = "{background}AA"
+    foreground = "{foreground}"
+    frame_color = "{color4}"
+    highlight = "{color14}"
+
+[urgency_normal]
+    background = "{background}99"
+    foreground = "{foreground}"
+    frame_color = "{color4}"
+
+[urgency_critical]
+    background = "{background}AA"
+    foreground = "{foreground}"
+    frame_color = "#F38BA8"
