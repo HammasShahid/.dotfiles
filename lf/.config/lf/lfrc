@@ -19,11 +19,39 @@ cmd mkfile ${{
 
 cmd unarchive ${{
     case "$f" in 
-      *.zip) unzip "$f" ;;
+      *.zip) 
+        read -p "Enter directory to unzip in (Leave blank for current directory): " dir
+        if [ -z "$dir" ]
+        then
+          unzip "$f" 
+        else
+          unzip "$f" -d "$dir"
+        fi
+        ;;
       *.rar) unrar x "$f" ;;
       *.tar.gz) tar -xzvf "$f" ;;
       *.tar) tar -xvf "$f" ;;
-      *) echo "Format not supported" ;;
+      *) echo "Format not supported"; exit 1 ;;
+    esac
+  }}
+
+cmd archive ${{
+    read -p "Enter archive format (Leave blank for zip): " format
+
+    case $format in
+      "" | zip) 
+        if [ -d $fx ]
+        then
+          read -p "Enter archive name (leave blank for the current directory name): " arc_name
+          [ -z $arc_name ] && arc_name=$fx
+        else
+          read -p "Enter archive name: " arc_name
+          [ -z "$arc_name" ] && read -p "Please enter a valid archive name: " arc_name
+        fi
+
+        [ -n "$arc_name" ] && zip -r "$arc_name" "$fx"
+        ;;
+      *) echo "Format not supported"; exit 1;
     esac
   }}
 
@@ -61,8 +89,10 @@ map n
 
 # Bindings
 map au unarchive
+map aa archive
 map bg pywal
 
+map <enter> open
 map nf mkfile
 map nd mkdir
 map x cut
