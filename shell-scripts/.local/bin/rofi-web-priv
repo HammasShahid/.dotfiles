@@ -1,0 +1,5 @@
+#!/bin/bash
+
+search_term=$(rofi -dmenu -i -p "url")
+
+[ -n "$search_term" ] && firefox --private-window "$search_term"
