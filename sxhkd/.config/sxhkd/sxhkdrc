@@ -2,13 +2,13 @@
 # wm independent hotkeys
 #
 
-super + shift + e
+super + alt + e
 	rofi -show emoji
 
 super + shift + n
 	rofi-nerdfonts
 
-super + shift + c
+super + alt + c
 	rofi -show calc
 
 # printscreen
@@ -43,6 +43,25 @@ XF86AudioPlay
 
 { XF86AudioMute, super + F5 }
 	$HOME/.local/bin/changevolume mute
+
+# Music
+super + {Scroll_Lock,Pause}
+  mpc volume {-5,+5} >/dev/null
+  
+alt + {Scroll_Lock,Pause}
+  mpc {prev,next}
+
+super + alt + {Scroll_Lock,Pause}
+  mpc seekthrough {-1,+1}
+
+super + alt + F5
+  mpc toggle
+
+super + shift m
+  $TERMINAL --title "ncmpcpp" ncmpcpp 
+
+super + alt + m
+  notify-send "$(mpc status)" 
 
 # lockscreen
 super + x
@@ -82,9 +101,18 @@ super + Return
 super + w
 	$BROWSER
 
+super + shift + w
+	firefox --private-window
+
+super + alt + shift + w
+  rofi-web-priv
+
 # Explorer
 super + e
 	$EXPLORER
+
+super + shift + e
+  kitty lf
 
 Menu
 	xte 'mouseclick 3'
